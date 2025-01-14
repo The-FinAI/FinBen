@@ -1,0 +1,5 @@
+"dataset_name": "certified_practising_accountant"
+"description": "以下是中国关于注册会计师考试的单项选择题，我会给你几个有答案的例子，请你根据最后一个题目的要求进行回答。\n你只需要回答最后一个题目\n\n"
+"include": "./_default_fineval_yaml"
+"tag": "zh-fineval"
+"task": "zh-fineval_certified_practising_accountant"
