@@ -1,22 +1,23 @@
 dataset_name: default
-dataset_path: TheFinAI/gr-multifin-new
-doc_to_target: gold
+dataset_path: TheFinAI/gr-finner-text-new
+output_type: generate_until
+doc_to_target: '{{answer}}'
 doc_to_text: '{{query}}'
-output_type: multiple_choice
-doc_to_choice: choices
 fewshot_split: train
 should_decontaminate: true
 doc_to_decontamination_query: "{{query}}"
+generation_kwargs:
+  do_sample: false
+  temperature: 0.0
+  max_gen_toks: 512
 metric_list:
-  - metric: acc
-    aggregation: mean
-    higher_is_better: true
-  - metric: acc_norm
+  - metric: f1
     aggregation: mean
     higher_is_better: true
 metadata:
   version: '1.0'
-task: GRMultifin
+task: GRFINTEXT
 tag: gr
 test_split: test
 training_split: train
+process_results: !function gr_utils.process_results
