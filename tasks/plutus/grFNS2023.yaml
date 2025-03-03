@@ -1,5 +1,5 @@
 dataset_name: default
-dataset_path: TheFinAI/gr-QA-new
+dataset_path: TheFinAI/greek-fns-2023
 output_type: generate_until
 doc_to_target: '{{answer}}'
 doc_to_text: '{{query}}'
@@ -7,25 +7,16 @@ fewshot_split: train
 should_decontaminate: true
 doc_to_decontamination_query: "{{query}}"
 generation_kwargs:
-  until:
-    - "."
-    - ","
   do_sample: false
   temperature: 0.0
-  max_gen_toks: 30
-filter_list:
-  - name: "score-first"
-    filter:
-      - function: "regex"
-        regex_pattern: "(Α|Β|Γ|Δ|Ε|ΣΤ|Ζ|Η)\\)"
-      - function: "take_first"
+  max_gen_toks: 512
 metric_list:
-  - metric: exact_match
-    aggregation: mean
+  - metric: !function gr_utils.rouge1
+    aggregation: !function gr_utils.rouge1_agg
     higher_is_better: true
 metadata:
   version: '1.0'
-task: GRQAGen
-tag: gr_gen
+task: GRFNS2023
+tag: gr_long
 test_split: test
 training_split: train
