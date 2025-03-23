@@ -11,7 +11,6 @@ doc_to_choice: choices
 target_delimiter: ""
 #  sampler: first_n
 fewshot_split: train
-num_fewshot: 5
 should_decontaminate: true
 doc_to_decontamination_query: "{{query}}"
 metric_list:
