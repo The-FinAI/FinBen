@@ -1,3 +1,3 @@
 [submodule "finlm_eval"]
 	path = finlm_eval
-	url = git@github.com:The-FinAI/finlm_eval.git
+	url = git@github.com:xxx/finlm_eval.git
